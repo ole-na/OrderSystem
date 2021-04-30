@@ -12,7 +12,7 @@ public class Main {
         return null;
     }
 
-    public void orderProducts(Product[] products) {
+    public void orderProducts(String[] productIds) {
 
     }
 
