@@ -12,7 +12,7 @@ public class OrderDb {
     }
 
     public List<Order> list(){
-        return null;
+        return orderList;
     }
 
     public Order get(String orderId){
