@@ -7,6 +7,9 @@ public class OrderDb {
 
     private List<Order> orderList = new ArrayList<>();
 
+    public OrderDb(List<Order> orderList) {
+        this.orderList = orderList;
+    }
 
     public List<Order> list(){
         return null;
