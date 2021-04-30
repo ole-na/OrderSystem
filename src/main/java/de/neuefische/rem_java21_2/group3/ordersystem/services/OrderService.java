@@ -15,7 +15,27 @@ public class OrderService {
 
     private OrderDb orderdb = new OrderDb(new ArrayList<>());
 
-    public void addOrder(Product[] products) {
+    public OrderService(ProductDB productdb) {
+        this.productdb = productdb;
+    }
+
+    public OrderService(){}
+
+    public void addOrder(String[] productIds) {
+        if(productIds != null && productIds.length > 0){
+            Product[] products = new Product[productIds.length];
+            for(int i = 0; i < productIds.length; i++){
+                Product product = productdb.get(productIds[i]);
+                if(product == null){
+                    return;
+                } else {
+                    products[i] = product;
+                }
+            }
+            String orderId = String.valueOf(orderdb.list().size() + 1);
+            Order xy = new Order(orderId, products);
+            orderdb.add(xy);
+        }
 
     }
 
