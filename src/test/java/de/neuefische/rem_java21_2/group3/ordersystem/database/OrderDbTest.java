@@ -54,5 +54,20 @@ class OrderDbTest {
 
     @Test
     void add() {
+
+        //Given
+        List<Order> orderList = List.of(new Order("0",new Product[3]), new Order("1",new Product[3]));
+
+        Order expected = new Order("2", new Product[4]);
+        OrderDb orderDb = new OrderDb(orderList);
+
+        //When
+
+        orderDb.add(expected);
+        Order actual = orderDb.get("2");
+
+        //Then
+        assertEquals(expected,actual);
+
     }
 }

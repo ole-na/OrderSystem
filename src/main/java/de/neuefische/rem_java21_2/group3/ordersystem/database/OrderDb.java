@@ -8,7 +8,7 @@ public class OrderDb {
     private List<Order> orderList = new ArrayList<>();
 
     public OrderDb(List<Order> orderList) {
-        this.orderList = orderList;
+        this.orderList.addAll(orderList);
     }
 
     public List<Order> list(){
@@ -31,6 +31,8 @@ public class OrderDb {
     }
 
     public void add(Order newOrder){
+        orderList.add(newOrder);
+
     }
 
 }
