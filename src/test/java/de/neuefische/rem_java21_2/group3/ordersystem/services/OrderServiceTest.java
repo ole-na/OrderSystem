@@ -1,14 +1,30 @@
 package de.neuefische.rem_java21_2.group3.ordersystem.services;
 
+import de.neuefische.rem_java21_2.group3.ordersystem.model.Order;
+import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class OrderServiceTest {
 
-    @org.junit.jupiter.api.Test
+    @Test
     void addOrder() {
     }
 
-    @org.junit.jupiter.api.Test
-    void listOrders() {
+    @Test
+    void testListOrders() {
+
+        //Given
+        OrderService testOrderService = new OrderService();
+        List<Order> expected = new ArrayList<Order>();
+
+        //When
+        List<Order> actual = testOrderService.listOrders();
+
+        //Then
+        assertEquals(expected, actual);
     }
 }
