@@ -16,7 +16,7 @@ public class ProductDB {
     }
 
     public Product get(String productId){
-        return null;
+        return this.productMap.get(productId);
     }
 
 }

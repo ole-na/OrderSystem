@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.HashMap;
@@ -46,7 +47,22 @@ class ProductDBTest {
         assertEquals(expectedProducts, products);
     }
 
-    @Test
-    void get() {
+    @ParameterizedTest
+    @CsvSource({"1", "2"})
+    void get(String givenId) {
+        //Given
+        Map<String, Product> products = new HashMap<>(Map.ofEntries(
+                entry("1", new Product("1", "Chocolate")),
+                entry("2", new Product("2", "Skateboard")),
+                entry("3", new Product("3", "Teddy Bear"))
+        ));
+        Product expected = products.get(givenId);
+        ProductDB productDB = new ProductDB(products);
+
+        //When
+        Product actual = productDB.get(givenId);
+
+        //Then
+        assertEquals(actual, expected);
     }
 }
