@@ -5,11 +5,13 @@ import de.neuefische.rem_java21_2.group3.ordersystem.database.ProductDB;
 import de.neuefische.rem_java21_2.group3.ordersystem.model.Order;
 import de.neuefische.rem_java21_2.group3.ordersystem.model.Product;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class OrderService {
 
-    private ProductDB productdb = new ProductDB();
+    private ProductDB productdb = new ProductDB(new HashMap<String, Product>());
+
     private OrderDb orderdb = new OrderDb();
 
     public void addOrder(Product[] products) {

@@ -5,10 +5,14 @@ import java.util.*;
 
 public class ProductDB {
 
-    private Map<Integer, Product> productMap = new HashMap<>();
+    private Map<String, Product> productMap = new HashMap<>();
+
+    public ProductDB(Map<String, Product> givenProducts) {
+        this.productMap.putAll(givenProducts);
+    }
 
     public Map list(){
-        return null;
+        return this.productMap;
     }
 
     public Product get(String productId){
