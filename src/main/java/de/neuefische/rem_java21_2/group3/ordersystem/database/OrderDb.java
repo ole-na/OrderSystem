@@ -16,6 +16,17 @@ public class OrderDb {
     }
 
     public Order get(String orderId){
+
+        if (orderId == null){
+            return null;
+        }
+
+        for (Order order: orderList) {
+
+            if (orderId.equals(order.getId())){
+                return order;
+            }
+        }
         return null;
     }
 
