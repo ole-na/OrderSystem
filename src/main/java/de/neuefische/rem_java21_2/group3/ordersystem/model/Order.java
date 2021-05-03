@@ -1,9 +1,9 @@
 package de.neuefische.rem_java21_2.group3.ordersystem.model;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Order {
-
     private String id;
     private Product[] products;
 
@@ -14,6 +14,10 @@ public class Order {
 
     public String getId() {
         return id;
+    }
+
+    public Product[] getProducts() {
+        return products;
     }
 
     @Override

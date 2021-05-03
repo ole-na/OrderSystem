@@ -10,6 +10,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 import static java.util.Map.entry;
 import static org.junit.jupiter.api.Assertions.*;
@@ -48,6 +49,7 @@ class ProductDBTest {
     }
 
     @ParameterizedTest
+    @DisplayName("get() returns product with given id")
     @CsvSource({"1", "2"})
     void get(String givenId) {
         //Given
@@ -60,7 +62,7 @@ class ProductDBTest {
         ProductDB productDB = new ProductDB(products);
 
         //When
-        Product actual = productDB.get(givenId);
+        Optional<Product> actual = productDB.get(givenId);
 
         //Then
         assertEquals(actual, expected);
